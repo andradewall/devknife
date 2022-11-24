@@ -20,3 +20,12 @@ jobs:
 
       - run: npm install
       - run: npm run production
+
+      - name: Commit assets
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git checkout -B deploy
+          git add -f public/
+          git commit -m "build: github actions auto assets deployment"
+          git push -f origin deploy
