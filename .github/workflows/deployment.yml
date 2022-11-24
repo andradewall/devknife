@@ -36,4 +36,4 @@ jobs:
           username: root
           host: "192.81.216.170"
           key: ${{ secrets.SSH_PASSWORD }}
-          script: "cd /var/www/gh-actions && sh server_deploy.sh"
+          script: "cd /var/www/html/devknife && sh server_deploy.sh"
