@@ -29,3 +29,11 @@ jobs:
           git add -f public/
           git commit -m "build: github actions auto assets deployment"
           git push -f origin deploy
+
+      - name: Deploy to production server
+        uses: appleboy/ssh-action@master
+        with:
+          username: root
+          host: "192.81.216.170"
+          key: ${{ secrets.SSH_PASSWORD }}
+          script: "cd /var/www/gh-actions && sh server_deploy.sh"
